@@ -23,7 +23,7 @@ public class GildedRose_1 {
 	    }
 
 	    public void backstagePassesHandler(Item pass) {
-	        qualityModifier(pass,0,backstagePassssSellInModifier(pass.sellIn));
+	        qualityModifier(pass,-pass.quality,backstagePassssSellInModifier(pass.sellIn));
 	    }    
 	    public void agedBrieHandler(Item brie) {
 	    	qualityModifier(brie,2,1);

@@ -15,7 +15,7 @@ public class BackStagePass extends Item {
 
 	@Override
 	public void dailyUpdate() {
-        qualityModifier(0,backstagePassssSellInModifier());
+        qualityModifier(-quality,backstagePassssSellInModifier());
         legaliseAndDecSellIn();
 	}
 
