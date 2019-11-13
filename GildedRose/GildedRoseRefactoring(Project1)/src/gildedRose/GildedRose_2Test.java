@@ -1,23 +1,10 @@
 package gildedRose;
 
 import static org.junit.Assert.*;
-
-import org.junit.Before;
 import org.junit.Test;
 
 public class GildedRose_2Test {
-
-    private Item[] items;
-    private GildedRose_2 app;
     
-    @Before
-    public void setUp() {
-        items = new Item[] {
-                new Item("+5 Dexterity Vest", 10, 20), 
-        };
-        app = new GildedRose_2(items);
-    }
-
 	@Test
 	public void tSetItemQualityTo0IfQualityBelowAcceptableRange() {
 	     Item item = new Item("+5 Dexterity Vest", 10, -1);
@@ -152,5 +139,4 @@ public class GildedRose_2Test {
 		 item.dailyUpdate();
 		 assertEquals(item.quality,0);
     }
-
 }
