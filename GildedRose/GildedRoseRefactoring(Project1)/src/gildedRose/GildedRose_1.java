@@ -19,7 +19,7 @@ public class GildedRose_1 {
 	    }
 
 	     public void qualityModifier(Item item,int modifier1,int modifier2) {
-	       	item.quality = (item.sellIn < 0) ? item.quality+modifier1 : item.quality+modifier2;
+	       	item.quality = (item.sellIn <= 0) ? item.quality+modifier1 : item.quality+modifier2;
 	    }
 
 	    public void backstagePassesHandler(Item pass) {

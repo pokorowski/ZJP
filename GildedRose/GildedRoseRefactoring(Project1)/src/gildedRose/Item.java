@@ -28,7 +28,7 @@ public class Item {
     }
       
     protected void qualityModifier(int modifier1,int modifier2) {
-      quality = (sellIn < 0) ? quality+modifier1 : quality+modifier2;
+      quality = (sellIn <= 0) ? quality+modifier1 : quality+modifier2;
     }
     
     public void dailyUpdate() {

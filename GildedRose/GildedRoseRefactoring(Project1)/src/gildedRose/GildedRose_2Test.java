@@ -40,13 +40,13 @@ public class GildedRose_2Test {
     
 
     @Test
-    public void SetQualityModifierTo3IfsellInIsLesserThan6(){
+    public void SetQualityModifierTo3IfsellInIsBetween0And6(){
     	 BackStagePass item = new BackStagePass("BackStagePass", 5, 45);
          assertEquals(item.backstagePassssSellInModifier(),3);
     }
     
     @Test
-    public void AddFirstModifierToItemQualityIfsellInIsNegative(){
+    public void AddFirstModifierToItemQualityIfsellInIsNonPositive(){
     	  Item item = new Item("+5 Dexterity Vest", -1,10);
 		  int quality = item.quality;
     	  item.qualityModifier(-5,-20);
@@ -54,15 +54,15 @@ public class GildedRose_2Test {
     }
 
     @Test
-    public void AddSecondModifierToItemQualityIfsellInIsNonNegative(){
-    	 Item item = new Item("+5 Dexterity Vest", 0,10);
+    public void AddSecondModifierToItemQualityIfsellInIsPositive(){
+    	 Item item = new Item("+5 Dexterity Vest", 1,10);
 		 int quality = item.quality;
    	     item.qualityModifier(-5,-20);
 		 assertEquals(item.quality,quality-20);
     }
     
     @Test
-    public void Substract2FromItemQualityIfIteamIsDefaultAndsellInIsNegative(){
+    public void Substract2FromItemQualityIfIteamIsDefaultAndsellInIsNonPositive(){
     	 Item item = new Item("+5 Dexterity Vest", -1,10);
 		 int quality = item.quality;
    	     item.dailyUpdate();
@@ -70,15 +70,15 @@ public class GildedRose_2Test {
     }
     
     @Test
-    public void Substract1FromItemQualityIfIteamIsDefaultAndsellInIsNonNegative(){
-    	 Item item = new Item("+5 Dexterity Vest", 0,10);
+    public void Substract1FromItemQualityIfIteamIsDefaultAndsellInIsPositive(){
+    	 Item item = new Item("+5 Dexterity Vest", 1,10);
 		 int quality = item.quality;
 		 item.dailyUpdate();
 		 assertEquals(item.quality,quality-1);
     }
     
     @Test
-    public void Substract4FromItemQualityIfIteamIsConjuredAndsellInIsNegative(){
+    public void Substract4FromItemQualityIfIteamIsConjuredAndsellInIsNonPositive(){
     	 Conjured item = new Conjured("Conjured", -1,10);
 		 int quality = item.quality;
    	     item.dailyUpdate();
@@ -86,15 +86,15 @@ public class GildedRose_2Test {
     }
     
     @Test
-    public void Substract2FromItemQualityIfIteamIsConjuredAndsellInIsNonNegative(){
-    	 Conjured item = new Conjured("Conjured", 0,10);
+    public void Substract2FromItemQualityIfIteamIsConjuredAndsellInIsPositive(){
+    	 Conjured item = new Conjured("Conjured", 1,10);
 		 int quality = item.quality;
 		 item.dailyUpdate();
 		 assertEquals(item.quality,quality-2);
     }
     
     @Test
-    public void Add2ToItemQualityIfIteamIsAgedBrieAndsellInIsNegative(){
+    public void Add2ToItemQualityIfIteamIsAgedBrieAndsellInIsNonPositive(){
     	 Item item = new AgedBrie("AgedBrie", -1,10);
 		 int quality = item.quality;
    	     item.dailyUpdate();
@@ -102,8 +102,8 @@ public class GildedRose_2Test {
     }
     
     @Test
-    public void Add1ToItemQualityIfIteamIsAgedBrieAndsellInIsNonNegative(){
-    	 Item item = new AgedBrie("AgedBrie", 0,10);
+    public void Add1ToItemQualityIfIteamIsAgedBrieAndsellInIsPositive(){
+    	 Item item = new AgedBrie("AgedBrie", 1,10);
 		 int quality = item.quality;
 		 item.dailyUpdate();
 		 assertEquals(item.quality,quality+1);
@@ -118,7 +118,7 @@ public class GildedRose_2Test {
     }
     
     @Test
-    public void Add2ToItemQualityIfIteamIsBackStagePassAndsellInIsBetween6And10(){
+    public void Add2ToItemQualityIfIteamIsBackStagePassAndsellInIsBetween5And11(){
     	 Item item = new BackStagePass("BackStagePass", 6,10);
 		 int quality = item.quality;
 		 item.dailyUpdate();
@@ -126,15 +126,15 @@ public class GildedRose_2Test {
     }
     
     @Test
-    public void Add3ToItemQualityIfIteamIsBackStagePassAndsellInIsBetween0And5(){
-    	 Item item = new BackStagePass("BackStagePass", 0,10);
+    public void Add3ToItemQualityIfIteamIsBackStagePassAndsellInIsBetween0And6(){
+    	 Item item = new BackStagePass("BackStagePass", 1,10);
 		 int quality = item.quality;
 		 item.dailyUpdate();
 		 assertEquals(item.quality,quality+3);
     }
     
     @Test
-    public void SetItemQualityTo0IfIteamIsBackStagePassAndsellInIsNegative(){
+    public void SetItemQualityTo0IfIteamIsBackStagePassAndsellInNonPositive(){
     	 Item item = new BackStagePass("BackStagePass", -1,10);
 		 item.dailyUpdate();
 		 assertEquals(item.quality,0);
